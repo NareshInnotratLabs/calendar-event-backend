@@ -43,6 +43,10 @@ const createTransporter = async () => {
   });
 };
 
+app.get("/", function(req, res){
+res.send("Calendar-Event-Schedule-App")
+})
+
 app.post("/api/schedule-meeting", async (req, res) => {
   const { name, date, time, email } = req.body;
 
