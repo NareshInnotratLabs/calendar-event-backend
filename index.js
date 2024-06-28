@@ -15,12 +15,12 @@ app.use(
   })
 );
 
-const CLIENT_ID = "1005413984238-8k2vc4kjtaa724h3pvml76eevsglvnpd.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "http://localhost:5000/oauth2callback";
-const REFRESH_TOKEN = "1//0gm-QcVnElrXMCgYIARAAGBASNwF-L9IrYw9YYE05zrs6iTFlaIQigVgGkvkHc0KIvC1KTD_BzzhE_DAHH55jd4I5uLFeACb-z00";
-const EMAIL_USER = "nodemaileraccess@gmail.com"; // Your email address
-const EMAIL_PASS = "xetp turz mtvk cwvy"; // Your email password or app password if 2FA enabled
+const CLIENT_ID = '713507225330-308i595lkv9f12o0usmghrd5m58mndqf.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'http://localhost:5000/oauth2callback';
+const REFRESH_TOKEN = "1//0g6aNL-k6zLq9CgYIARAAGBASNwF-L9IrF-poyIvTNcKENOjlWet0zDoBOAxBfi4x8o9wVvlf5i40WFaOLFD03cC3upKoLGbYE1E";
+const EMAIL_USER = "nareshbabu@innotrat.in"; // Your email address
+const EMAIL_PASS = "qhyl yfge rdni vpym"; // Your email password or app password if 2FA enabled
 
 const oAuth2Client = new OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
@@ -70,6 +70,13 @@ app.post("/api/schedule-meeting", async (req, res) => {
       timeZone: "Asia/Kolkata",
     },
     attendees: [{ email: email }],
+    reminders: {
+      useDefault: false,
+      overrides: [
+        { method: 'email', minutes: 24 * 60 },
+        { method: 'popup', minutes: 10 }
+      ]
+    }
   };
 
   try {
@@ -105,5 +112,4 @@ app.post("/api/schedule-meeting", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-// 1//0gm-QcVnElrXMCgYIARAAGBASNwF-L9IrYw9YYE05zrs6iTFlaIQigVgGkvkHc0KIvC1KTD_BzzhE_DAHH55jd4I5uLFeACb-z00
-// 4/0ATx3LY55S3rNnyTHhIroCZaExYiN-bNAtbxooAvtfzg5I-XsIVklijlmkaoww41ugDYP3w&scope=https://www.googleapis.com/auth/calendar
+
